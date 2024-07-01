@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [search, setSearch] = useState('');
@@ -26,6 +28,7 @@ export default function Home() {
 
   return (
     <>
+      <div> <Navbar /></div>
 
       <div>
         <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{ objectFit: 'contain !important' }}>
@@ -72,6 +75,7 @@ export default function Home() {
         }
 
       </div>
+      <div><Footer /></div>
     </>
   )
 }
