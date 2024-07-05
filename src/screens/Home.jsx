@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Card from '../components/Card';
 
 export default function Home() {
   const [search, setSearch] = useState('');
@@ -64,6 +65,10 @@ export default function Home() {
                 foodItem.filter((item) => ((item.CategoryName === cat.CategoryName) && (item.name.toLowerCase().includes(search.toLocaleLowerCase())))).map(dish => {
                   return (
                     <div key={dish._id} className='col-12 col-md-6 col-lg-3'>
+                      <Card
+                        food={dish}
+                        options={dish.options[0]}
+                      />
                     </div>
                   )
                 })
