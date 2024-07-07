@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useDispatchCart,useCart } from "./ContextReducer";
 import { useRef } from "react";
 
 const Card = (props) => {
+    let dispatch = useDispatchCart();
     let options = props.options;
     let priceOptions = Object.keys(options);
     let data = useCart();
@@ -9,6 +11,25 @@ const Card = (props) => {
     const [qty,setQty]=useState(1);
     const [size,setSize]=useState(props.options[0]);
 
+   const handleAddToCart = async()=>{
+    let food = [];
+    for(const item of data){
+        if(item.id===props.food._id){
+            food=item;
+            break;
+        }
+    }
+    if(food!=[]){
+        if(food.size == size){
+            await dispatch({type:"UPDATE",id:props.food._id,price:finalPrice,qty:qty});
+        }
+        else if(food.size!=size){
+            await dispatch({type:"ADD",id: props.food._id,name: props.food.name,price: finalPrice,qty:qty,size:size,img: props.food.img});
+        }
+        return
+    }
+    await dispatch({type:"ADD",id: props.food._id,name:props.food.name,price: finalPrice,qty:qty,size:size});
+   }
 
   useEffect(()=>{
     setSize(priceRef.current.value);
