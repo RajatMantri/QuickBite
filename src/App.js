@@ -4,9 +4,11 @@ import Login from "./screens/Login";
 import "./App.css"
 import "../node_modules/bootstrap-dark-5/dist/css/bootstrap-dark.min.css"
 import Signup from "./screens/Signup.jsx";
+import { CartProvider } from "./components/ContextReducer.js";
 
 function App() {
   return (
+    <CartProvider>
     <BrowserRouter>
       <div>
         <Routes>
@@ -16,6 +18,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 
