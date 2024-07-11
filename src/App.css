@@ -15,3 +15,48 @@ code {
 #carousel{
   max-height: 500px;
 }
+
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.profile-details {
+  margin-top: 20px;
+}
+
+.profile-details p {
+  margin-bottom: 10px;
+}
+
+.profile-loading, .profile-error {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+      padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-container {
+      border-radius: 0;
+      border: none;
+  }
+
+  .profile-loading, .profile-error {
+      border-radius: 0;
+      border: none;
+  }
+}

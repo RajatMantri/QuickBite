@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 const Login = () => {
   let navigate = useNavigate()
   const [credentials, setcredentials] = useState({ email: "", password: "" });
@@ -15,15 +17,21 @@ const Login = () => {
       body: JSON.stringify({ email: credentials.email, password: credentials.password })
     })
     const json = await response.json();
-    console.log(json);
+    //console.log(json);
 
     if (!json.success) {
       alert("Enter Valid Credentials");
     }
     else {
+      const options = {
+        expires: new Date(
+          Date.now() + 13 * 24 * 60 * 60 * 1000
+        ),
+        secure: true
+      };
+      const authToken=json.authToken;
       localStorage.setItem("userEmail",credentials.email);
-      localStorage.setItem("authToken", json.authToken);
-      // console.log(localStorage.getItem("authToken"));
+      Cookies.set('authToken', authToken, options);
       navigate('/');
     }
   }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURL = 'mongodb://127.0.0.1:27017/GoFood';
+const mongoURL = 'mongodb://127.0.0.1:27017/QuickBite';
 
 const MongoDB = async () => {
     try {

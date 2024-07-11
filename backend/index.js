@@ -18,6 +18,8 @@ app.use(express.json());
 app.use('/api',require("./routes/User"));
 app.use('/api',require("./routes/DisplayData"));
 app.use('/api',require('./routes/OrderData'));
+app.use('/api',require('./routes/Auth'));
+app.use('/api',require('./routes/Profile'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
