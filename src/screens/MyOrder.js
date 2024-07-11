@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import NoDataFound from '../components/NoDataFound';
 
 export default function MyOrder() {
 
@@ -70,7 +71,7 @@ export default function MyOrder() {
                                             )
                                         })
                                     )
-                                }) : ""
+                                }) : <NoDataFound />
                         )
                     }) : ""}
                 </div>

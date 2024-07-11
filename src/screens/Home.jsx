@@ -40,7 +40,7 @@ export default function Home() {
               </form>
             </div>
             <div className="carousel-item active">
-              <img src="https://images.unsplash.com/photo-1631452180539-96aca7d48617?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFuZWVyJTIwdGlra2F8ZW58MHx8MHx8fDA%3DNHY" className=" " style={{ 'filter': "brightness(30%)", "height": "10%", "width": "100%" }} alt="..." />
+              <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTR8fHxlbnwwfHx8fHw%3D" className=" " style={{ 'filter': "brightness(30%)", "height": "10%", "width": "100%" }} alt="..." />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
