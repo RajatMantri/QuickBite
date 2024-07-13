@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import NavBar from '../components/Navbar';
-import '../App.css'; // Import your CSS file here
+import '../App.css'; 
 import Footer from '../components/Footer';
 
 const ProfilePage = () => {

@@ -29,7 +29,7 @@ export default function NavBar() {
     const handleLogOut = () => {
       Cookies.remove('authToken');
       localStorage.removeItem('userEmail');
-      navigate('/');
+      window.location.reload();
     };
 
   return (

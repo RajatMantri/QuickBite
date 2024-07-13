@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const Login = () => {
-  let navigate = useNavigate()
-  const [credentials, setcredentials] = useState({ email: "", password: "" });
+  let navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +17,6 @@ const Login = () => {
       body: JSON.stringify({ email: credentials.email, password: credentials.password })
     })
     const json = await response.json();
-    //console.log(json);
 
     if (!json.success) {
       alert("Enter Valid Credentials");
@@ -37,31 +36,29 @@ const Login = () => {
   }
 
   const onChange = (e) => {
-    setcredentials({ ...credentials, [e.target.name]: e.target.value });
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   }
 
   return (
-    <>
-      <div className='container'>
+    <div className="login-container">
+      <div className="login-form">
         <form onSubmit={handleSubmit}>
-
-
+          <h2 className="login-title">Login</h2>
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-            <input type="email" className="form-control" name='email' onChange={onChange} value={credentials.email} />
-
+            <label htmlFor="email" className="form-label">Email address</label>
+            <input
+              type="email" className="form-control" id="email" name="email" onChange={onChange} value={credentials.email} required />
           </div>
-
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-            <input type="password" className="form-control" name='password' onChange={onChange} value={credentials.password} />
+            <label htmlFor="password" className="form-label">Password</label>
+            <input type="password" className="form-control" id="password" name="password" onChange={onChange} value={credentials.password} required />
           </div>
-          <button type="submit" className="m-3 btn btn-success">Submit</button>
-          <Link to='/createUser' className="m-3 btn btn-danger">I am a new user</Link>
+          <button type="submit" className="btn btn-primary btn-success btn-block">Submit</button>
+          <Link to="/createUser" className="btn btn-secondary btn-danger btn-block mt-3">I am a new user</Link>
         </form>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default Login; 
+export default Login;

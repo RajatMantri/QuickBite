@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatchCart,useCart } from "./ContextReducer";
 import { useRef } from "react";
+import Cookies from "js-cookie";
 
 const Card = (props) => {
     let dispatch = useDispatchCart();
@@ -12,6 +13,13 @@ const Card = (props) => {
     const [size,setSize]=useState(props.options[0]);
 
    const handleAddToCart = async()=>{
+
+    const authToken = Cookies.get('authToken');
+    if (!authToken) {
+        alert('Please login first');
+        return;
+    }
+
     let food = [];
     for(const item of data){
         if(item.id===props.food._id){
