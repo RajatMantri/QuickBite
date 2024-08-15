@@ -17,7 +17,7 @@ const reducer = (state, action) => {
         case "UPDATE":
             let arr = [...state]
             arr.find((food, index) => {
-                if (food.id === action.id) {
+                if (food.id === action.id&&food.size===action.size) {
                     arr[index] = { ...food, qty: parseInt(action.qty) + parseInt(food.qty), price: action.price + food.price }
                 }
             })

@@ -22,19 +22,17 @@ const Card = (props) => {
 
     let food = [];
     for(const item of data){
-        if(item.id===props.food._id){
+        if(item.id===props.food._id&&item.size===size){
             food=item;
             break;
         }
     }
+
     if(food!=[]){
-        if(food.size == size){
-            await dispatch({type:"UPDATE",id:props.food._id,price:finalPrice,qty:qty});
+        if(food.size === size){
+            await dispatch({type:"UPDATE",id:props.food._id,price:finalPrice,qty:qty,size:size});
+            return;
         }
-        else if(food.size!=size){
-            await dispatch({type:"ADD",id: props.food._id,name: props.food.name,price: finalPrice,qty:qty,size:size,img: props.food.img});
-        }
-        return
     }
     await dispatch({type:"ADD",id: props.food._id,name:props.food.name,price: finalPrice,qty:qty,size:size});
    }
